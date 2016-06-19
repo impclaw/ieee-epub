@@ -1,0 +1,16 @@
+Converts IEEE publications from HTML (save as in firefox), to epub files for ebook readers. The code requires the files/folders ['<name>.html', '<name>_files'] to exists. 
+
+The code is very ugly, and just a hack so I can read papers on my kindle. 
+
+Current version includes support for: 
+ - Title
+ - Authors
+ - Text
+ - Figures
+ - Tables
+
+Fix in later version: 
+ - Appendix
+ - More space-efficient (don't include useless images, like author bios)
+ - References
+ - Working links
