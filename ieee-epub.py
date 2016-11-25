@@ -17,7 +17,7 @@ except:
 	
 filesdir = sys.argv[1].split('.')[0]+'_files'
 
-soup = BeautifulSoup(open(sys.argv[1], 'r').read(), 'html.parser')
+soup = BeautifulSoup(codecs.open(sys.argv[1], 'r', 'utf-8').read(), 'html.parser')
 try:
 	title = purge(soup.select_one('div.content > div.text > h1').text)
 except:
@@ -29,7 +29,7 @@ authors = []
 for a in soup.select('div#authors > div.content > div.author > div.copy > h3'):
 	authors.append(a.text)
 
-with open('META-INF/container.xml', 'w') as cf:
+with codecs.open('META-INF/container.xml', 'w', 'utf-8') as cf:
 	cf.write('<?xml version="1.0" encoding="UTF-8" ?>\n')
 	cf.write('<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">\n')
 	cf.write('<rootfiles>\n')
@@ -71,7 +71,7 @@ txt += '</body></html>'
 with codecs.open('OEBPS/content.xhtml', 'w', encoding='utf-8') as wf:
 	wf.write(txt)
 
-with open('OEBPS/content.opf', 'w') as of:
+with codecs.open('OEBPS/content.opf', 'w', 'utf-8') as of:
 	of.write('<?xml version="1.0" encoding="UTF-8" ?>\n')
 	of.write('<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookID" version="2.0" >')
 	of.write('<metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">')
